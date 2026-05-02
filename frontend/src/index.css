@@ -1,0 +1,63 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0a0f;
+  --surface: #12121a;
+  --surface2: #1a1a26;
+  --border: #2a2a3d;
+  --accent: #6c63ff;
+  --accent2: #ff6584;
+  --accent3: #43e97b;
+  --text: #e8e8f0;
+  --text2: #8888aa;
+  --radius: 12px;
+  --font-mono: 'Space Mono', monospace;
+  --font-sans: 'DM Sans', sans-serif;
+}
+
+body { background: var(--bg); color: var(--text); font-family: var(--font-sans); min-height: 100vh; }
+
+button { cursor: pointer; font-family: var(--font-sans); }
+input, textarea, select { font-family: var(--font-sans); }
+
+.btn {
+  padding: 10px 20px; border: none; border-radius: 8px;
+  font-size: 14px; font-weight: 500; transition: all 0.2s;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #7c74ff; transform: translateY(-1px); }
+.btn-danger { background: transparent; color: var(--accent2); border: 1px solid var(--accent2); }
+.btn-danger:hover { background: var(--accent2); color: #fff; }
+.btn-ghost { background: transparent; color: var(--text2); border: 1px solid var(--border); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.input {
+  width: 100%; padding: 10px 14px; background: var(--surface2);
+  border: 1px solid var(--border); border-radius: 8px; color: var(--text);
+  font-size: 14px; transition: border 0.2s; outline: none;
+}
+.input:focus { border-color: var(--accent); }
+.input::placeholder { color: var(--text2); }
+
+.card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px;
+}
+
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 20px;
+  font-size: 11px; font-weight: 600; font-family: var(--font-mono); text-transform: uppercase;
+}
+.badge-todo { background: #2a2a3d; color: var(--text2); }
+.badge-in_progress { background: #1a1a3a; color: #6c63ff; }
+.badge-done { background: #0d2a1a; color: var(--accent3); }
+.badge-low { background: #1a2a1a; color: var(--accent3); }
+.badge-medium { background: #2a2010; color: #ffa040; }
+.badge-high { background: #2a1010; color: var(--accent2); }
+.badge-active { background: #0d2a1a; color: var(--accent3); }
+.badge-completed { background: #1a1a3a; color: var(--accent); }
+
+.error-msg { color: var(--accent2); font-size: 13px; margin-top: 6px; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fadeIn 0.3s ease; }
