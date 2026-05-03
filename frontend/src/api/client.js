@@ -1,14 +1,26 @@
-const BASE = '/api';
+const BASE = 'https://team-task-manager-production-c026.up.railway.app/api';
+
 const getToken = () => localStorage.getItem('token');
 
 async function request(method, path, body) {
+  const token = getToken();
+
   const res = await fetch(`${BASE}${path}`, {
     method,
-    headers: { 'Content-Type': 'application/json', ...(getToken() ? { Authorization: `Bearer ${getToken()}` } : {}) },
+    headers: {
+      'Content-Type': 'application/json',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
     ...(body ? { body: JSON.stringify(body) } : {}),
   });
+
   const data = await res.json();
-  if (!res.ok) throw new Error(data.error || 'Request failed');
+
+  if (!res.ok) {
+    console.error('API ERROR:', data); // 👈 IMPORTANT DEBUG
+    throw new Error(data.error || 'Request failed');
+  }
+
   return data;
 }
 
