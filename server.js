@@ -1,13 +1,20 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const { initDatabase, dbHelpers } = require('./db/database');
+const { initDatabase } = require('./db/database');
 const errorHandler = require('./middleware/errorHandler');
 
 initDatabase();
 
 const app = express();
-app.use(cors({ origin: process.env.CLIENT_URL || '*', credentials: true }));
+
+// ✅ FIXED CORS (IMPORTANT)
+app.use(cors({
+  origin: true,
+  credentials: true
+}));
+
+
 app.use(express.json());
 
 app.use('/api/auth',     require('./routes/auth'));
@@ -23,6 +30,5 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`Team Task Manager API  →  http://localhost:${PORT}`);
-  console.log(`Storage: JSON file (db.json)`);
+  console.log(`Team Task Manager API → http://localhost:${PORT}`);
 });

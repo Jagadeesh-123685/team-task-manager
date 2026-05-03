@@ -2,25 +2,17 @@
   "users": [
     {
       "id": 1,
-      "name": "jagadeesh",
-      "email": "jagadeeshwarroyal@gmail.com",
-      "password": "$2a$10$gOwf7PIBF2RYfvC1JbYx7e3yDy.GYmnDGzPcQg6mfYhU8D8f2rxS6",
-      "role": "member",
-      "created_at": "2026-05-02T19:41:08.714Z"
-    },
-    {
-      "id": 2,
-      "name": "jagadeesh",
-      "email": "2203031241086@gmail.com",
-      "password": "$2a$10$qnD/uMcavwIK4fSoGXzlseMnTdquP/9t7aNUeQD.30q0t1Vgw.4mq",
-      "role": "member",
-      "created_at": "2026-05-02T20:52:09.503Z"
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "$2a$10$7QJ9lWvVZQk1sZ5Zz3k3Z.9Hkz9rQZ2F8ZlPz9zYxQ0zY5QJvQ1yK",
+      "role": "admin",
+      "created_at": "2026-01-01T00:00:00.000Z"
     }
   ],
   "projects": [],
   "tasks": [],
   "sequences": {
-    "users": 3,
+    "users": 2,
     "projects": 1,
     "tasks": 1
   }
